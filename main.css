@@ -4,9 +4,8 @@
 
 /* ----------------------------------------- COLOR VARIABLES */
 :root {
-    --red: #801e47;
-    --transparentRed: #801e47D0;
-    --lightGreen: #87916d;
+    --transparentPurple: #69236bD0;
+    --lightGreen: #769d99;
 }
 
 /* ----------------------------------------- BASICS */
@@ -26,17 +25,23 @@ img {
     width: 6vw;
     padding: 0 2.5vw;
 }
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+#map {
+    height: 300px;
+}
 
 /* ----------------------------------------- HEADINGS AND TEXT */
 h1 {
-    display: flex;
-    align-items: center;
-    background-color: var(--red);
-    color: white;
-    padding: 4px 10px;
-    margin: 20px 0;
     font-family: 'Ysabeau SC', sans-serif;
     font-size: 9vw;
+    padding: 10px;
 }
 h2 {
     font-size: 5vw;
@@ -44,7 +49,6 @@ h2 {
 
 p {
     padding: 0 5px;
-    margin-bottom: 20px;
     font-size: 20px;
 }
 
@@ -52,36 +56,37 @@ p {
 body {
     width: 100vw;
     overflow-x: hidden;
-}
-body, header {
     background-color: var(--lightGreen);
-    display: flex;
-    flex-flow: column wrap;
 }
 header {
-    padding: 0 10px;
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    width: 100vw;
+    background-color: black;
+    color: white;
 }
 section {
     padding: 10px;
     margin: 20px 0;
 }
 hr {
-    border: 1px solid var(--red);
-    width: 95%;
+    display: inline-block;
+    border: 1px solid var(--lightGreen);
+    width: 0;
+    height: 15px;
     opacity: 0.4;
 }
 
 /* ----- PLACEHOLDER */
 /* https://www.w3schools.com/howto/howto_css_placeholder.asp */
 ::placeholder {
-    color: var(--transparentRed);
+    color: var(--transparentPurple);
     opacity: 1; /* Firefox */
 }
 ::-ms-input-placeholder { /* Edge 12 -18 */
-    color: var(--transparentRed);
+    color: var(--transparentPurple);
 }
 
 /* ----- LOADING */
@@ -99,7 +104,7 @@ hr {
     animation: bblFadInOut 1.8s infinite ease-in-out;
 }
 .loader {
-    color: var(--red);
+    color: black;
     font-size: 7px;
     position: relative;
     text-indent: -9999em;
@@ -139,7 +144,7 @@ hr {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: var(--red);
+    background: black;
     border-radius: 0.5vw;
 }
 
@@ -165,12 +170,6 @@ hr {
     section {
         padding: 10px 10vw;
     }
-    #toggle-filters-button {
-        right: 10vw;
-    }
-    input[type=text] {
-        width: 75%;
-    }
 }
 @media screen and (min-width: 1300px) {
     * {
@@ -190,11 +189,5 @@ hr {
     }
     section {
         padding: 10px 20vw;
-    }
-    #toggle-filters-button {
-        right: 20vw;
-    }
-    input[type=text] {
-        width: 80%;
     }
 }
