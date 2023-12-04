@@ -3,7 +3,20 @@
   "version": "1.0.0",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mysql2": "^3.6.5"
-  }
+    "firebase": "^10.7.0",
+    "firebase-admin": "^11.11.1",
+    "mysql2": "^3.6.5",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "description": "1. To create connection to database, please down the SQL file to your pc and add your MySQL Workbench password to the code.\r 2. There is a variable called userID which makes sure that only the selected user with that ID will have their data shown in the results. If you want to look at another user then change the userID.\r 3. The pictures are supposed to be saved in cloud storage, but in the examples the links are just for show.\r # GET requests\r ## query parameters\r Query parameters can be used on all GET requests ***except /albums and /pictures/:pictureID***.\r ```\r http://localhost:3000/pictures?city=copenhagen          // Shows all pictures from Copenhagen\r http://localhost:3000/album/beach-vacation?tag=family   // Shows all pictures from the album 'beach vacation' with the tag 'family'\r http://localhost:3000/pictures?tag=friends&year=2023     // Shows all pictures with the tag 'friends' from 2023\r ...\r ```\r Also **country**, **year**, **month**, and **day** can be added as query parameters. Multiple parameters can be used at once.\r > month and day can be written as both single and double digits if less than 10. Meaning both are valid: 1 and 01",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

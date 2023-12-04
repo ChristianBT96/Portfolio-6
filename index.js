@@ -1,25 +1,54 @@
+import {initializeApp} from "firebase/app";
+import {collection, setDoc, doc, getFirestore, query, where, getDocs } from "firebase/firestore";
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyDQhW9ZGoQNsEOYsXK6MolkRgzupxOgL8E",
+    authDomain: "world-of-pictures.firebaseapp.com",
+    projectId: "world-of-pictures",
+    storageBucket: "world-of-pictures.appspot.com",
+    messagingSenderId: "497847256484",
+    appId: "1:497847256484:web:d4e29809a90966303ead31"
+};
+
+let admin = require("firebase-admin");
+let serviceAccount = require("firebase-adminsdk-zgsd7@world-of-pictures.iam.gserviceaccount.com");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+});
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// -------------------------------------------------- CODE BEGINNING
+const picturesRef = collection(db, "pictures");
+const albumsRef = collection(db, "albums");
+
 // ------------------------------------------------- ACCESS JS LIBARIES
 const express = require('express');
-const mysql = require('mysql2');
-const cors = require('cors');
-// Hej
-// ------------------------------------------------- CREATE CONNECTION
-const app = express();
-const port = 3000;
-
-app.use(express.json());
-
-app.listen(port, () => {
-    console.log(`app listening on port ${port}`);
-});
-
-//  Host, user, password, database
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: '****', // WRITE YOUR OWN LOCAL PASSWORD <<------------------
-    database: "world_of_pictures"
-});
+// const mysql = require('mysql2');
+// const cors = require('cors');
+//
+// // ------------------------------------------------- CREATE CONNECTION
+// const app = express();
+// const port = 3000;
+//
+// app.use(express.json());
+//
+// app.listen(port, () => {
+//     console.log(`app listening on port ${port}`);
+// });
+//
+// //  Host, user, password, database
+// const connection = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: '****', // WRITE YOUR OWN LOCAL PASSWORD <<------------------
+//     database: "world_of_pictures"
+// });
 
 // ------------------------------------------------- USER ID
 // SELECT USER TO SEE DATA FOR THAT USER <<-----------------------
