@@ -2,7 +2,7 @@
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
-
+// Hej
 // ------------------------------------------------- CREATE CONNECTION
 const app = express();
 const port = 3000;
