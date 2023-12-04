@@ -164,12 +164,6 @@ hr {
     p {
         font-size: 22px;
     }
-    header {
-        padding: 0 5vw;
-    }
-    section {
-        padding: 10px 10vw;
-    }
 }
 @media screen and (min-width: 1300px) {
     * {
@@ -184,10 +178,5 @@ hr {
     p {
         font-size: 25px;
     }
-    header {
-        padding: 0 10vw;
-    }
-    section {
-        padding: 10px 20vw;
-    }
+
 }
