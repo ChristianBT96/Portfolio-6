@@ -1,12 +1,30 @@
 import {db} from './firestore.js';
 
-import {collection, getDocs, query, where} from "firebase/firestore";
+import {collection, doc, getDocs, query, setDoc, where} from "firebase/firestore";
 
 const picturesRef = collection(db, "pictures");
 
 const albumsRef = collection(db, "albums");
 
+const usersRef = collection(db, "users");
+
 const recentPictures = document.querySelector('#recent-pictures');
+
+export async function createUserInDB (uid, firstName, lastName, signupEmail) {
+    await setDoc(doc(usersRef), {
+        first_name: firstName,
+        last_name: lastName,
+        email: signupEmail,
+        uid: uid
+        })
+        .then((docRef) => {
+            console.log("Document written");
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
+
 
 async function retrievePictures (collectionRef) {
     try
