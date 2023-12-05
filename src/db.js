@@ -17,8 +17,8 @@ export async function createUserInDB (uid, firstName, lastName, signupEmail) {
         email: signupEmail,
         uid: uid
         })
-        .then((docRef) => {
-            console.log("Document written");
+        .then(() => {
+            location.replace("index.html");
         })
         .catch((error) => {
             console.log(error);
@@ -26,11 +26,11 @@ export async function createUserInDB (uid, firstName, lastName, signupEmail) {
 }
 
 
-async function retrievePictures (collectionRef) {
+export async function retrievePictures () {
     try
     {
         let countryData = [];
-        const q = query(collectionRef);
+        const q = query(picturesRef);
         // const q = query(collectionRef, where("user_id", "==", userUID));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach(doc => {
@@ -60,7 +60,6 @@ async function retrievePictures (collectionRef) {
     catch(err)
     {console.log(err)}
 }
-retrievePictures(picturesRef);
 // const firebase_delete_data = async (category, response, product_name) => {
 //     try
 //     {

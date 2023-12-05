@@ -70,9 +70,8 @@ const createAccount = () => {
     createUserWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
             const user = userCredential.user;
-            window.userUID = user.uid;
-            // location.replace("index.html");
             createUserInDB(user.uid, firstName.value, lastName.value, signupEmail.value);
+            window.userUID = user.uid;
 
         })
         .catch((error) => {

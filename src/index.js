@@ -1,5 +1,6 @@
 import {onAuthStateChanged} from "firebase/auth";
 import {auth} from "./firestore";
+import {retrievePictures} from "./db.js";
 
 async function monitorAuthState() {
     onAuthStateChanged(auth, (user) => {
@@ -28,6 +29,7 @@ const logOut = async () => {
 
 if (!window.location.href.includes('login.html')) {
     monitorAuthState();
+    retrievePictures();
     const logOutLink = document.querySelector("#logout");
     logOutLink.addEventListener("click", logOut);
 }
