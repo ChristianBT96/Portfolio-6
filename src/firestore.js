@@ -25,14 +25,31 @@ const recentPictures = document.querySelector('#recent-pictures');
 async function retrievePictures (collectionRef) {
     try
     {
-        let q = query(collectionRef);
-        let querySnapshot = await getDocs(q);
+        let countryData = [];
+        const q = query(collectionRef);
+        const querySnapshot = await getDocs(q);
         querySnapshot.forEach(doc => {
-            console.log(doc.data);
+            console.log(doc.data());
             const img = document.createElement('img');
             img.src = doc.data().img_path;
             recentPictures.appendChild(img);
+
+            if (countryData.some(x => x.name === doc.data().country)) {
+                countryData.forEach(object => {
+                    if (object.name === doc.data().country) {
+                        object.count++;
+                    }
+                });
+            }
+            else {
+                countryData.push({
+                    "name": doc.data().country,
+                    "count": 1
+                })
+            }
         });
+        console.log(countryData)
+        renderGeoJSON(countryData);
     }
     catch(err)
     {console.log(err)}
