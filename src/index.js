@@ -18,4 +18,19 @@ async function monitorAuthState() {
         }
     });
 }
-monitorAuthState();
+const logOut = async () => {
+    await auth.signOut().then(() => {
+        window.location.replace('./index.html');
+    }).catch((error) => {
+        console.log(error);
+    });
+};
+
+if (!window.location.href.includes('login.html')) {
+    monitorAuthState();
+    const logOutLink = document.querySelector("#logout");
+    logOutLink.addEventListener("click", logOut);
+}
+
+
+
