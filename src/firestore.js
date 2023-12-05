@@ -99,4 +99,3 @@ retrievePictures(picturesRef);
 //         console.log(err)
 //     }
 // }
-
