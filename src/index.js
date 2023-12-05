@@ -20,7 +20,7 @@ async function monitorAuthState() {
 }
 const logOut = async () => {
     await auth.signOut().then(() => {
-        window.location.replace('./index.html');
+        window.location.replace('./login.html');
     }).catch((error) => {
         console.log(error);
     });

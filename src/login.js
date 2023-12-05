@@ -25,3 +25,20 @@ const logIn = async () => {
 };
 loginBtn.addEventListener("click", logIn);
 
+const toggleSignUpSection = () => {
+    const signUpSection = document.querySelector('#signup-section');
+    const loginSection = document.querySelector('#login-section')
+    if (signUpSection.classList.contains('hidden')) {
+        signUpSection.classList.remove('hidden');
+        loginSection.classList.add('hidden');
+    }
+    else {
+        signUpSection.classList.add('hidden');
+        loginSection.classList.remove('hidden');
+    }
+    
+}
+const showSignUp = document.querySelector('#create-account');
+showSignUp.addEventListener('click', toggleSignUpSection)
+const showLogin = document.querySelector('#already-have-account');
+showLogin.addEventListener('click', toggleSignUpSection)
