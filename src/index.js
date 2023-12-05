@@ -13,6 +13,7 @@ async function monitorAuthState() {
             // User is signed out
             window.userUID = '';
             console.log('user is signed out')
+            window.location.replace('./login.html');
             // ...
         }
     });
