@@ -48,7 +48,7 @@ function onEachFeature(feature, layer) {
 
     // SHOW THE POPUP/TOOLTIP ON MOUSEOVER
     layer.on({
-        mouseover: function() {
+        click: function() {
             layer.openPopup();
         },
     });
