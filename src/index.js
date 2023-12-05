@@ -35,4 +35,10 @@ if (!window.location.href.includes('login.html')) {
 }
 
 
+const uploadPictureBtn = document.querySelector('#upload-picture-button');
+
+const uploadPicture = () => {
+    console.log("sick")
+}
+
 
